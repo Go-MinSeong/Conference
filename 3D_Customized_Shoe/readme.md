@@ -18,14 +18,17 @@ I want anyone to make easily own customization shoes. And I hope to made 3d shoe
 
 <h3 align="left"> Method </h3>
 
-### 1. Make the mask of the shoes by using Segmentation
+#### 1. Make the mask of the shoes by using Segmentation
     -  Sometimes the masks are inaccurate so you have to check and trim it.
 
 
-### 2. Apply your style that you want to the shoe by Style Transfer Model
+#### 2. Apply your style that you want to the shoe by Style Transfer Model
 
 
-### 3. Convert shoe to 3D object by 3D Reconstruction Model
+#### 3. Convert shoe to 3D object by 3D Reconstruction Model
+
+
+<br>
 
 <h4 align="left"> Reference Code </h4>
 
@@ -69,17 +72,33 @@ I want anyone to make easily own customization shoes. And I hope to made 3d shoe
   year={2023}
 }
 ```
+<br>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+<br>
 <div align="center">
 
-<h2 align="center"> Demo </h2>
+<h2 align="center"> Demo Gif & transfered images </h2>
+
+<br>
 
 <p float="center">
-  <img src="video.gif" alt="Animated gif pacman game" height="360px" width="480px" />
+  <img src="video.gif" alt="Animated gif pacman game" height="360px" width="640px" />
 </p>
 
 </div>
 
-- You can see the project through pptx file specifically.
+
+<br>
+<div align="center">
+
+![stronghold logo](result1.png)
+
+<br>
+
+![stronghold logo](result2.png)
+</div>
+
+
+- **You can see the project through pdf file specifically.**
