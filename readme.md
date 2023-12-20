@@ -25,11 +25,15 @@
 <h1 align="left"> Introduce </h1>
 
 ## 1. Generate Novel Scence
+
+<br>
+
 **Summarize Novel Chapter and generate scence through text data.**
+<br>
 
 [[PRESENTATION LINK]](https://www.youtube.com/watch?v=DWKVIOXZ92w&t=8s) [[PROJECT LINK]](https://github.com/Go-MinSeong/Conference/tree/main/Generate_Novel_Scenes) 
 
-
+<br>
 
 <div align="center">
 
@@ -37,12 +41,25 @@
 
 **Generated image in Alice in Wonderland**
 
+<br>
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+<br>
+
 </div>
 
 ## 2. 3D Customized Shoe
+
+<br>
+
 **Segmentation shoe and style transfer apply shoe and generate 3d shoe.**
 
+
 [[PROJECT LINK]](https://github.com/Go-MinSeong/Conference/tree/main/3D_Customized_Shoe)
+
 <br>
 
 <div align="center">
