@@ -1,83 +1,107 @@
-def choice(Shoes_Categories, name, Parts_Categories, mask_, Style_Categories1, Style_Categories2, theme):
-  shoes = name
-  mask_choice = mask_
-  style1 = theme
-  original = cv2.imread(f'shoes/{shoes}.jpg')
-  filename=[]
+<h1 align = "center"> Generate Novel Scence </h1>
 
-  for i,mask_name in enumerate(mask_choice):
-    if i == 0:
-      filename1 = f'mask/segmentation_{shoes}_{mask_name}.png'
-      merge_mask = cv2.imread(filename1,cv2.IMREAD_GRAYSCALE)
-    else:
-      filename1 = f'mask/segmentation_{shoes}_{mask_name}.png'
-      mask = cv2.imread(filename1,cv2.IMREAD_GRAYSCALE)
-      merge_mask = merge_mask + mask
-
-  #바꾸고자 하는 style 이미지
-
-  filename2 = f'style/{style1}.jpg'
-  filename3= f'shoes/{shoes}.jpg'
-  command = f"python CAP-VSTNet/image_transfer.py --mode photorealistic --ckpoint CAP-VSTNet/checkpoints/photo_image.pt --content {filename3}  --style {filename2} "
-  subprocess.run(command, shell=True)
-  print('suce\cess')
-
-   # Composition
-  #merge_mask = cv2.imread(filename1,cv2.IMREAD_GRAYSCALE)
-  output_mask_style = cv2.imread(f'output/{shoes}_{style1}.png')
-  transfer = cv2.copyTo(output_mask_style,merge_mask,original) #3개 이미지 곱 style, mask, original
-  img_name = f'results/output_mask_{shoes}_{style1}.png'
-
-  NAME = f'results/output_mask_{shoes}_{style1}'
-
-  cv2.imwrite(f'{NAME}.png',transfer)
+<h3 align="center"> D&A Conference Project  (2022-08 ~ 2022-11) </h3>
 
 
-  # Composition -1
-  # mask = cv2.imread(filename1,cv2.IMREAD_GRAYSCALE)
-  # output_mask_style = cv2.imread(f'output/segmentation_{shoes}_{mask_choice}_{style1}.png')
-  # transfer = cv2.copyTo(output_mask_style,mask,original)
-  # img_name = f'results/output_mask_{shoes}_{style1}_{mask_choice}.png'
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-  # NAME = f'results/output_mask_{shoes}_{style1}_{mask_choice}'
+<br>
 
-  # cv2.imwrite(f'{NAME}.png',transfer)
+#### Why I do this Project?
+When I read a book, Somethimes I imagine the place that main character live in or apperance of characters in books.
 
-  # 3D preprocessing
+There are many books that just only have text. So if there are any images, I think that it was so nice. 
 
-  command = f"python dreamgaussian/process.py {NAME}.png"
+Imagine that we can see the characters in the novel we read.
 
-  subprocess.run(command, shell=True)
-
-  # 3D multi view
-
-  client = Client("https://one-2-3-45-one-2-3-45.hf.space/")
-
-  input_img_path = f'{NAME}_rgba.png'
-
-  elevation_angle_deg = client.predict(
-    input_img_path,
-    True,		# image preprocessing
-    api_name="/estimate_elevation"
-  )
+<br>
 
 
-  Elevation = elevation_angle_deg
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
-  # 3D reconstruction
+<h3 align="left"> Method </h3>
 
-  command = f"python dreamgaussian/main.py --config dreamgaussian/configs/image.yaml input={input_img_path} save_path={NAME} elevation={Elevation} force_cuda_rast=True"
-  subprocess.run(command, shell=True)
+#### 1. Summarize each chapter of the novel.
+    -  if we didn't summarize the text, we can't any propoer image. Because too many text make image generator confuse.
 
-  command = f"python dreamgaussian/main2.py --config dreamgaussian/configs/image.yaml input={input_img_path} save_path={NAME} elevation={Elevation} force_cuda_rast=True"
-  subprocess.run(command, shell=True)
 
-  #3D obj
+#### 2. Generate Scence
 
-  command = f"python -m kiui.render logs/{NAME}.obj --save_video {NAME}.mp4 --wogui --force_cuda_rast"
-  subprocess.run(command, shell=True)
 
-  video_name = f'{NAME}.mp4'
+#### 3. Retouch Image
 
-  return img_name , video_name
+
+<br>
+
+<h4 align="left"> Reference Code </h4>
+
+[BART](https://github.com/facebookresearch/fairseq/blob/main/examples/bart)
+```
+@article{lewis2019bart,
+    title = {BART: Denoising Sequence-to-Sequence Pre-training for Natural
+Language Generation, Translation, and Comprehension},
+    author = {Mike Lewis and Yinhan Liu and Naman Goyal and Marjan Ghazvininejad and
+              Abdelrahman Mohamed and Omer Levy and Veselin Stoyanov
+              and Luke Zettlemoyer },
+    journal={arXiv preprint arXiv:1910.13461},
+    year = {2019},
+}
+```
+
+[CTRL-SUM](https://huggingface.co/hyunwoongko/ctrlsum-cnndm)
+
+
+[Stable Diffusion](https://github.com/huggingface/diffusers)
+```
+@misc{von-platen-etal-2022-diffusers,
+  author = {Patrick von Platen and Suraj Patil and Anton Lozhkov and Pedro Cuenca and Nathan Lambert and Kashif Rasul and Mishig Davaadorj and Thomas Wolf},
+  title = {Diffusers: State-of-the-art diffusion models},
+  year = {2022},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/huggingface/diffusers}}
+}
+```
+
+[GFPGAN](https://github.com/TencentARC/GFPGAN)
+```
+@InProceedings{wang2021gfpgan,
+    author = {Xintao Wang and Yu Li and Honglun Zhang and Ying Shan},
+    title = {Towards Real-World Blind Face Restoration with Generative Facial Prior},
+    booktitle={The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+    year = {2021}
+}
+```
+<br>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<br>
+<div align="center">
+
+<h2 align="center"> Result Images in Merchant of Venice </h2>
+
+<br>
+
+
+</div>
+
+
+<br>
+<div align="center">
+
+![stronghold logo](result.png)
+
+<br>
+
+![stronghold logo](result2.png)
+
+<br>
+
+![stronghold logo](result3.png)
+
+</div>
+
+
+- **You can see the project through pdf file specifically.**
