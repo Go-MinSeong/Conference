@@ -33,7 +33,7 @@
 **Summarize Novel Chapter and generate scence through text data.**
 <br>
 
-[[PRESENTATION LINK]](https://www.youtube.com/watch?v=DWKVIOXZ92w&t=8s) [[PROJECT LINK]](https://github.com/Go-MinSeong/Conference/tree/main/Generate_Novel_Scenes) 
+[[PRESENTATION LINK]](https://www.youtube.com/watch?v=DWKVIOXZ92w&t=8s) [[PROJECT LINK]](https://github.com/Go-MinSeong/Conference/tree/main/Generate_Novel_Scence) 
 
 <br>
 
